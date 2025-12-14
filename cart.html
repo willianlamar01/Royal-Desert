@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ROYAL DESERT</title>
+    <link rel="icon" type="image/x-icon" href="imagen/royaldesert1.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="imagen/royaldesert.png" alt="ROYAL DESERT Logo" class="logo-image">
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Menu">☰</button>
+            
+            <nav class="desktop-nav">
+                <a href="index.html">HOME</a>
+                <a href="index.html#shop">SHOP</a>
+                <a href="index.html#collections">COLLECTIONS</a>
+                <a href="index.html#about">ABOUT</a>
+            </nav>
+            
+            <div class="header-icons">
+                <a href="login.html" class="icon-link">LOGIN</a>
+                <a href="register.html" class="icon-link">REGISTER</a>
+                <a href="cart.html" class="icon-link cart-link">
+                    CART <span class="cart-count" id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+
+        <nav class="mobile-nav">
+            <a href="index.html">HOME</a>
+            <a href="index.html#shop">SHOP</a>
+            <a href="index.html#collections">COLLECTIONS</a>
+            <a href="index.html#about">ABOUT</a>
+            <a href="login.html">LOGIN</a>
+            <a href="register.html">REGISTER</a>
+            <a href="cart.html">CART (<span id="cart-count-mobile">0</span>)</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart-section">
+            <div class="cart-container">
+                <h1>SHOPPING CART</h1>
+                
+                <div class="cart-content">
+                    <div class="cart-items-wrapper">
+                        <!-- Los productos se cargarán aquí dinámicamente desde JavaScript -->
+                        <div class="cart-items" id="cart-items-container">
+                            <!-- JavaScript insertará los productos aquí -->
+                        </div>
+
+                        <!-- Botón Update Cart -->
+                        <div class="cart-actions">
+                            <button type="button" class="update-cart-btn" id="update-cart-btn">
+                                <span>🔄</span> UPDATE CART
+                            </button>
+                            <a href="index.html#shop" class="continue-shopping-link">← Continue Shopping</a>
+                        </div>
+                    </div>
+
+                    <div class="cart-summary">
+                        <h2>ORDER SUMMARY</h2>
+
+                        <!-- Totales -->
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="cart-subtotal">$0.00</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="cart-shipping">$10.00</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Tax (10%):</span>
+                            <span id="cart-tax">$0.00</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="cart-total">$0.00</span>
+                        </div>
+
+                        <!-- Código Promocional -->
+                        <form class="promo-form" id="promo-form">
+                            <input type="text" name="promo" id="promo-input" placeholder="Promo Code" maxlength="20">
+                            <button type="submit">APPLY</button>
+                        </form>
+
+                        <div class="promo-message" id="promo-message" style="display: none;"></div>
+                        
+                        <!-- Botón Checkout -->
+                        <button type="button" class="checkout-btn" id="checkout-btn">PROCEED TO CHECKOUT</button>
+                        
+                        <!-- Iconos de pago aceptados -->
+                        <div class="payment-methods">
+                            <p>We accept:</p>
+                            <div class="payment-icons">
+                                <span>💳</span>
+                                <span>Visa</span>
+                                <span>Mastercard</span>
+                                <span>Amex</span>
+                                <span>PayPal</span>
+                            </div>
+                        </div>
+
+                        <div class="secure-badge">
+                            <span>🔒</span>
+                            <span>Secure Checkout</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mensaje de carrito vacío -->
+                <div class="empty-cart" id="empty-cart" style="display: none;">
+                    <div class="empty-cart-icon">🛒</div>
+                    <h2>YOUR CART IS EMPTY</h2>
+                    <p>Looks like you haven't added anything to your cart yet</p>
+                    <a href="index.html#shop" class="shop-btn">START SHOPPING</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de productos relacionados -->
+        <section class="related-products" id="related-products" style="display: none;">
+            <div class="related-container">
+                <h2 class="section-title">YOU MIGHT ALSO LIKE</h2>
+                <div class="products-grid">
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="imagen/products/eclipse-sweater.jpg" alt="Eclipse Sweater">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">ECLIPSE SWEATER</h3>
+                            <p class="product-price">$95.00</p>
+                            <button class="add-to-cart-btn" type="button">ADD TO CART</button>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="imagen/products/galaxy-shorts.jpg" alt="Galaxy Shorts">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">GALAXY SHORTS</h3>
+                            <p class="product-price">$55.00</p>
+                            <button class="add-to-cart-btn" type="button">ADD TO CART</button>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="imagen/products/cosmic-jacket.jpg" alt="Cosmic Jacket">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">COSMIC JACKET</h3>
+                            <p class="product-price">$120.00</p>
+                            <button class="add-to-cart-btn" type="button">ADD TO CART</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>MENU</h3>
+                <nav>
+                    <a href="index.html">HOME</a>
+                    <a href="index.html#shop">SHOP</a>
+                    <a href="index.html#collections">COLLECTIONS</a>
+                    <a href="index.html#about">ABOUT</a>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h3>CUSTOMER SERVICE</h3>
+                <nav>
+                    <a href="contact.html">CONTACT</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="shipping.html">SHIPPING</a>
+                    <a href="returns.html">RETURNS</a>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h3>ACCOUNT</h3>
+                <nav>
+                    <a href="login.html">LOGIN</a>
+                    <a href="register.html">REGISTER</a>
+                </nav>
+            </div>
+
+            <div class="footer-section">
+                <h3>NEWSLETTER</h3>
+                <p>Subscribe to receive updates</p>
+                <form class="newsletter-form" method="post" action="subscribe.php">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 ROYAL DESERT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
